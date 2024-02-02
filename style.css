@@ -3,9 +3,9 @@
   --width: 53rem;
   --yellow: #f5c647;
   --bezel: #f5cc4f;
-  --screen: #00aaaa;
   --greyer: #aaaaaa;
   --grey: #e4e4e4;
+  --black: #000000
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 }
 
 body,
-#switch,
+#switch-body,
 #bezel,
 #screen {
   display: flex;
@@ -26,7 +26,38 @@ body,
   filter: drop-shadow(0 0 2px #000);
 }
 
-#switch {
+/* #bumper-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
+
+#bumper-button-left,
+#bumper-button-right {
+  z-index: -1;
+  width: calc(var(--width) / 6);
+  height: calc(var(--height) / 7);
+  background: var(--grey);
+  position: absolute;
+  top: -0.375rem;
+}
+
+#bumper-button-left {
+  left: 0.5rem;
+  border-top-left-radius: 5.5rem 100%;
+  border-top-right-radius: 5%;
+  border-bottom-left-radius: 5%;
+}
+
+#bumper-button-right {
+  right: 0.5rem;
+  border-top-right-radius: 5.5rem 100%;
+  border-top-left-radius: 5%;
+  border-bottom-right-radius: 5%;
+}
+
+#switch-body {
+  position: relative;
   width: var(--width);
   height: var(--height);
   border-radius: 5.5rem;
@@ -44,8 +75,7 @@ body,
 
 /* Animate boot screen */
 #screen {
-  background-color: #000;
-  background-color: var(--screen);
+  background-color: var(--black);
   border-style: inset;
   border-width: 0.3rem;
   border-color: #000;
@@ -162,12 +192,21 @@ body,
 
 .yxba-button span {
   color: var(--greyer);
-  text-style: inset;
+  font-style: inset;
 }
 
 .joystick,
 .math:before,
 .math:after,
-.yxba-button {
+.yxba-button,
+.home {
   background: var(--grey);
+}
+
+#home-button {
+  height: 2rem;
+  width: 2rem;
+  border: 0.2rem solid var(--greyer);
+  border-radius: 50%;
+  margin-left: 1rem;
 }
